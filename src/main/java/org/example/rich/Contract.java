@@ -22,7 +22,7 @@ public class Contract {
 
     private Percentage commissionPercentage;
 
-    public Contract(BrandId brandId, PartnerId partnerId, Percentage commissionPercentage) {
+    private Contract(BrandId brandId, PartnerId partnerId, Percentage commissionPercentage) {
 
         assertNotNull(brandId, "brandId cannot be null");
         assertNotNull(partnerId, "partnerId cannot be null");
@@ -37,6 +37,10 @@ public class Contract {
 
         this.status = ContractStatus.PROPOSED;
 
+    }
+
+    public static Contract propose(BrandId brandId, PartnerId partnerId, Percentage commissionPercentage) {
+        return new Contract(brandId, partnerId, commissionPercentage);
     }
 
 
